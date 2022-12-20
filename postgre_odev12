@@ -1,0 +1,29 @@
+1 - SELECT COUNT(*) FROM film
+    WHERE length > 
+    (
+      SELECT AVG(length) FROM film
+    );
+   
+2 - SELECT COUNT(*) FROM film
+    WHERE rental_rate = 
+    (
+      SELECT max(rental_rate) FROM film
+    );
+    
+3 - SELECT title FROM film
+    WHERE 
+    rental_rate = 
+    (
+      SELECT min(rental_rate) FROM film
+    )
+    AND
+    replacement_cost =
+    (
+      SELECT min(replacement_cost) from film
+    );
+    
+4 - SELECT customer_id, amount FROM payment
+    WHERE amount = 
+    (
+      SELECT max(amount) FROM payment
+    );
